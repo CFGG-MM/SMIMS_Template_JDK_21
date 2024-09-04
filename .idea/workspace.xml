@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fcd4f4b6-fda1-40f9-8d76-5db911d554b2" name="Changes" comment="Arduino test added">
-      <change afterPath="$PROJECT_DIR$/src/test/SendDataToArduinoController.java" afterDir="false" />
+    <list default="true" id="fcd4f4b6-fda1-40f9-8d76-5db911d554b2" name="Changes" comment="ideas and tests added">
+      <change afterPath="$PROJECT_DIR$/Ideen/Notizen.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arduino/sketch_aug21a/sketch_aug21a.ino" beforeDir="false" afterPath="$PROJECT_DIR$/Ideen/sketch_aug21a.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arduino/test/test.ino" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/ArduinoTestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/ArduinoTestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +64,7 @@
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Documents/SMIMS/2023/SMIMS_14&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Documents/IntelliJ/SMIMS_Template_JDK_21/Ideen/test_arduino_receive_data&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15837796&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.33448276&quot;,
@@ -81,11 +77,11 @@
       <recent name="controller" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Documents\IntelliJ\SMIMS_Template_JDK_21\Ideen\test_arduino_receive_data" />
       <recent name="D:\Documents\IntelliJ_Workspace\SMIMS_Template_JDK_21\lib\sl4fj 2.0.16" />
       <recent name="D:\Documents\IntelliJ_Workspace\SMIMS_Template_JDK_21\src\minigames\frogger" />
       <recent name="D:\Documents\IntelliJ_Workspace\SMIMS_Template_JDK_21\resources\frogger" />
       <recent name="D:\Documents\IntelliJ_Workspace\SMIMS_Template_JDK_21\arduino" />
-      <recent name="D:\Documents\IntelliJ_Workspace\SMIMS_Template_JDK_21\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Documents\IntelliJ\SMIMS_Template_JDK_21\vergangene SMIMS" />
@@ -95,7 +91,7 @@
       <recent name="controller" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="SMIMS_Template_JDK_21" />
@@ -118,8 +114,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Test" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
   </component>
@@ -164,13 +160,33 @@
       <option name="project" value="LOCAL" />
       <updated>1725115655327</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="ideas and tests added">
+      <option name="closed" value="true" />
+      <created>1725456761716</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1725456761716</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
     <MESSAGE value="basic structure, dependencies and demo code added" />
     <MESSAGE value="Arduino test added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Arduino test added" />
+    <MESSAGE value="ideas and tests added" />
+    <option name="LAST_COMMIT_MESSAGE" value="ideas and tests added" />
   </component>
 </project>
