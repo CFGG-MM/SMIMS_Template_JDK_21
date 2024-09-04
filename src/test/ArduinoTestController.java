@@ -6,7 +6,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class ArduinoTestController extends AbstractController {
-    private static final Logger log = LoggerFactory.getLogger(ArduinoTestController.class);
 
     /* Static Variables */
 
@@ -28,7 +27,7 @@ public class ArduinoTestController extends AbstractController {
         try {
             serialPort.closePort();
         } catch (SerialPortException e) {
-            log.error("e: ", e);
+            System.err.println(e);
         }
     }
 
