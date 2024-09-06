@@ -1,6 +1,6 @@
 package minigames.frogger.obstacles;
 
-import minigames.frogger.ScalablePicture;
+import common.ScalablePicture;
 
 public abstract class Obstacle extends ScalablePicture {
 

@@ -1,4 +1,4 @@
-package sas_demo;
+package demo_and_test;
 
 import sas.*;
 

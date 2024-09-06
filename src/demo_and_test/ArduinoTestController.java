@@ -1,9 +1,7 @@
-package test;
+package demo_and_test;
 
 import controller.AbstractController;
 import jssc.SerialPortException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class ArduinoTestController extends AbstractController {
 

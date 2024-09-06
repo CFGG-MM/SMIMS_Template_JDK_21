@@ -1,5 +1,6 @@
 package minigames.frogger;
 
+import common.ScalablePicture;
 import minigames.AbstractGame;
 
 public class Pokal extends ScalablePicture {

@@ -1,7 +1,7 @@
 package minigames.frogger;
 
+import common.ScalablePicture;
 import minigames.AbstractGame;
-import sas.Picture;
 
 public class Frog extends ScalablePicture {
 

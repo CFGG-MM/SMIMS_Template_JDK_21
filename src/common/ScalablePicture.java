@@ -1,4 +1,4 @@
-package minigames.frogger;
+package common;
 
 import sas.Picture;
 
