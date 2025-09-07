@@ -1,10 +1,6 @@
-import controller.AbstractController;
-import controller.TastaturController;
+package main;
+
 import demo_and_test.SaSDemo;
-import minigames.AbstractGame;
-import minigames.frogger.FroggerGame;
-import minigames.snake.SnakeGame;
-import sas.View;
 
 public class Main {
 
