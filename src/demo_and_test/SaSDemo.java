@@ -46,7 +46,7 @@ public class SaSDemo {
         schneemann.moveTo(100, 100);
         Haus haus = new Haus(view);
 
-        Picture weihnachtsmann = new Picture(20, 500, "resources/weihnachtsmann.png");
+        Picture weihnachtsmann = new Picture(20, 500, "resources/demo/weihnachtsmann.png");
         double schrittlaenge = 10;
 
         while (!weihnachtsmann.intersects(haus.getKlingel())) {
