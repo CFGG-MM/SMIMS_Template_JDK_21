@@ -47,11 +47,11 @@ public class TastaturController extends AbstractController {
         double x = 0.0;
 
         if (view.keyLeftPressed()) {
-            x += -512.0;
+            x += -1.0;
         }
 
         if (view.keyRightPressed()) {
-            x += 511.0;
+            x += 1.0;
         }
 
         return x;
@@ -62,11 +62,11 @@ public class TastaturController extends AbstractController {
         double y = 0.0;
 
         if (view.keyUpPressed()) {
-            y += -512.0;
+            y += -1.0;
         }
 
         if (view.keyDownPressed()) {
-            y += 511.0;
+            y += 1.0;
         }
 
         return y;
