@@ -17,13 +17,19 @@ public class SnakeGame extends AbstractGame {
     private static final int SQR_SIZE = 30;
     private static final int MAP_SIZE = 18;
     private static final int SNAKE_SIZE = 20;
+    /** Determines after how many ticks the snake will be moved automatically. */
     private static final int TICKS_TO_MOVE = 25;
-    private static final int BLOCK_INPUT_TICKS = 3;
+    /**
+     * Determines the amount of ticks the game will not receive input from the user. This is necessary because the game
+     * runs much faster than the user can pull away their finger after an interaction.
+     * @see #blockInputCounter
+     */
+    private static final int BLOCK_INPUT_TICKS = 5;
     private static final int SCORE_TO_WIN = 20;
-    private static final double THRESHOLD_X_LEFT = -100.0; // To avoid 'stick drift'
-    private static final double THRESHOLD_X_RIGHT = 100.0;
-    private static final double THRESHOLD_Y_DOWN = 100.0;
-    private static final double THRESHOLD_Y_UP = -100.0;
+    private static final double THRESHOLD_X_LEFT = -0.1; // To avoid 'stick drift'
+    private static final double THRESHOLD_X_RIGHT = 0.1;
+    private static final double THRESHOLD_Y_DOWN = 0.1;
+    private static final double THRESHOLD_Y_UP = -0.1;
 
     private static Rectangle newSnakeSegment(double x, double y) {
         return new Rectangle(x, y, SNAKE_SIZE, SNAKE_SIZE, Color.YELLOW);
@@ -35,7 +41,12 @@ public class SnakeGame extends AbstractGame {
     private Rectangle[][] fields;
     private Snake snake;
     private Direction lastDirection;
+    /** Used to count the general ticks. */
     private int tickCounter;
+    /**
+     * Used to count how many ticks have passed since the last user input.
+     * @see #BLOCK_INPUT_TICKS
+     */
     private int blockInputCounter;
     private int score;
     private Rectangle scoutRect;
@@ -118,7 +129,7 @@ public class SnakeGame extends AbstractGame {
                 break;
             }
 
-            // Do we have to move the snake by force?
+            // Do we have to move the snake by force (i.e. the player didn't do anything)?
             if (tickCounter >= TICKS_TO_MOVE) {
                 move(lastDirection);
                 tickCounter = 0;
@@ -142,7 +153,7 @@ public class SnakeGame extends AbstractGame {
                     || joyY >= THRESHOLD_Y_DOWN || joyY <= THRESHOLD_Y_UP;
             boolean inputValid = false;
 
-            if (blockInputCounter == 0 && inputReceived) {
+            if (blockInputCounter <= 0 && inputReceived) {
 
 
                 if (joyX <= THRESHOLD_X_LEFT && lastDirection != Direction.RIGHT) {
@@ -185,7 +196,7 @@ public class SnakeGame extends AbstractGame {
             shapesToRemove.add(win);
         }
 
-        // Make sure the player can quit the game so give them a button to click.
+        // Make sure the player can quit the game so give them a button to click on.
         Button okBtn = new Button(view.getWidth() / 2 - 75, view.getHeight() / 2 + 30, 150, 30, "Ok!", Color.WHITE);
         while (!okBtn.clicked()) {
             view.wait(TICK_RATE);
