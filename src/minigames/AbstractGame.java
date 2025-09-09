@@ -24,7 +24,6 @@ public abstract class AbstractGame {
         this.controller = controller;
         this.view = view;
         this.shapesToRemove = new ArrayList<>();
-        initView();
     }
 
     /* Object Methods */
@@ -37,8 +36,6 @@ public abstract class AbstractGame {
         cleanUp();
 
     }
-
-    protected abstract void initView();
 
     protected abstract void runGame();
 

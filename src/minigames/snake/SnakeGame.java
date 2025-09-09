@@ -57,69 +57,9 @@ public class SnakeGame extends AbstractGame {
     }
 
     @Override
-    protected void initView() {
-
-        this.died = false;
-        this.won = false;
-        this.fields = new Rectangle[MAP_SIZE][MAP_SIZE];
-        this.snake = new Snake(5, 5);
-        this.lastDirection = Direction.RIGHT;
-        this.tickCounter = 0;
-        this.blockInputCounter = 0;
-        this.score = 0;
-        this.scoutRect = newSnakeSegment(0, 0);
-        this.grow = false;
-
-        Rectangle background = new Rectangle(0, 0, view.getWidth(), view.getHeight(), new Color(6, 131, 6));
-
-        int offSetX = view.getWidth() / 2 - MAP_SIZE * SQR_SIZE / 2;
-        int offSetY = view.getHeight() / 2 - MAP_SIZE * SQR_SIZE / 2;
-        Rectangle border = new Rectangle(offSetX - 5, offSetY - 5, MAP_SIZE * SQR_SIZE + 10, MAP_SIZE * SQR_SIZE + 10, Color.BLACK);
-        fields = new Rectangle[MAP_SIZE][MAP_SIZE];
-        for (int i = 0; i < MAP_SIZE; i += 2) {
-            for (int j = 0; j < MAP_SIZE; j += 2) {
-                fields[j][i] = new Rectangle(offSetX + j * SQR_SIZE, offSetY + i * SQR_SIZE, SQR_SIZE, SQR_SIZE, new Color(82, 193, 80));
-                fields[j + 1][i] = new Rectangle(offSetX + (j + 1) * SQR_SIZE, offSetY + i * SQR_SIZE, SQR_SIZE, SQR_SIZE, new Color(77, 154, 58));
-                fields[j][i + 1] = new Rectangle(offSetX + j * SQR_SIZE, offSetY + (i + 1) * SQR_SIZE, SQR_SIZE, SQR_SIZE, new Color(77, 154, 58));
-                fields[j + 1][i + 1] = new Rectangle(offSetX + (j + 1) * SQR_SIZE, offSetY + (i + 1) * SQR_SIZE, SQR_SIZE, SQR_SIZE, new Color(82, 193, 80));
-            }
-        }
-
-
-        // initialising Snake
-        int targetIndexX = snake.getIndexX();
-        int targetIndexY = snake.getIndexY();
-        double newX, newY;
-        for (int i = 0; i < 3; i++) {
-            Rectangle targetField = fields[targetIndexX][targetIndexY];
-            newX = (SQR_SIZE - SNAKE_SIZE) / 2 + targetField.getShapeX();
-            newY = (SQR_SIZE - SNAKE_SIZE) / 2 + targetField.getShapeY();
-            snake.add(newSnakeSegment(newX, newY));
-            targetIndexX--;
-        }
-        snake.getFirst().setColor(Color.ORANGE);
-        scoutRect.setHidden(true);
-        scoutRect.setTransparency(0.01f);
-
-
-        // food
-        apple = new Circle(0, 0, SQR_SIZE / 2.0, Color.RED);
-        placeFood();
-
-        // Make sure all elements created here will be removed later.
-        for (int i = 0; i < fields.length; i++) {
-            shapesToRemove.addAll(Arrays.asList(fields[i]));
-        }
-        shapesToRemove.add(apple);
-        shapesToRemove.addAll(snake);
-        shapesToRemove.add(background);
-        shapesToRemove.add(border);
-        shapesToRemove.add(scoutRect);
-
-    }
-
-    @Override
     protected void runGame() {
+
+        initView();
 
         while (!died && !won) {
 
@@ -184,7 +124,6 @@ public class SnakeGame extends AbstractGame {
             view.wait(TICK_RATE);
         }
 
-
         // The game is over - one way or another.
         if (died) {
             Text gameOver = new Text(view.getWidth() / 2.0 - 20.0, view.getHeight() / 2.0 - 5.0, "You lost!");
@@ -205,7 +144,7 @@ public class SnakeGame extends AbstractGame {
 
     }
 
-    void placeFood() {
+    private void placeFood() {
 
         int x, y;
         Rectangle field;
@@ -232,7 +171,7 @@ public class SnakeGame extends AbstractGame {
 
     }
 
-    public void move(Direction direction) {
+    private void move(Direction direction) {
 
         int targetIndexX = snake.getIndexX() + direction.getX(); // Compute the new horizontal index of the snake.
         int targetIndexY = snake.getIndexY() + direction.getY(); // Compute the new vertical index of the snake.
@@ -308,6 +247,67 @@ public class SnakeGame extends AbstractGame {
             score++;
             placeFood();
         }
+
+    }
+
+    private void initView() {
+
+        this.died = false;
+        this.won = false;
+        this.fields = new Rectangle[MAP_SIZE][MAP_SIZE];
+        this.snake = new Snake(5, 5);
+        this.lastDirection = Direction.RIGHT;
+        this.tickCounter = 0;
+        this.blockInputCounter = 0;
+        this.score = 0;
+        this.scoutRect = newSnakeSegment(0, 0);
+        this.grow = false;
+
+        Rectangle background = new Rectangle(0, 0, view.getWidth(), view.getHeight(), new Color(6, 131, 6));
+
+        int offSetX = view.getWidth() / 2 - MAP_SIZE * SQR_SIZE / 2;
+        int offSetY = view.getHeight() / 2 - MAP_SIZE * SQR_SIZE / 2;
+        Rectangle border = new Rectangle(offSetX - 5, offSetY - 5, MAP_SIZE * SQR_SIZE + 10, MAP_SIZE * SQR_SIZE + 10, Color.BLACK);
+        fields = new Rectangle[MAP_SIZE][MAP_SIZE];
+        for (int i = 0; i < MAP_SIZE; i += 2) {
+            for (int j = 0; j < MAP_SIZE; j += 2) {
+                fields[j][i] = new Rectangle(offSetX + j * SQR_SIZE, offSetY + i * SQR_SIZE, SQR_SIZE, SQR_SIZE, new Color(82, 193, 80));
+                fields[j + 1][i] = new Rectangle(offSetX + (j + 1) * SQR_SIZE, offSetY + i * SQR_SIZE, SQR_SIZE, SQR_SIZE, new Color(77, 154, 58));
+                fields[j][i + 1] = new Rectangle(offSetX + j * SQR_SIZE, offSetY + (i + 1) * SQR_SIZE, SQR_SIZE, SQR_SIZE, new Color(77, 154, 58));
+                fields[j + 1][i + 1] = new Rectangle(offSetX + (j + 1) * SQR_SIZE, offSetY + (i + 1) * SQR_SIZE, SQR_SIZE, SQR_SIZE, new Color(82, 193, 80));
+            }
+        }
+
+
+        // initialising Snake
+        int targetIndexX = snake.getIndexX();
+        int targetIndexY = snake.getIndexY();
+        double newX, newY;
+        for (int i = 0; i < 3; i++) {
+            Rectangle targetField = fields[targetIndexX][targetIndexY];
+            newX = (SQR_SIZE - SNAKE_SIZE) / 2 + targetField.getShapeX();
+            newY = (SQR_SIZE - SNAKE_SIZE) / 2 + targetField.getShapeY();
+            snake.add(newSnakeSegment(newX, newY));
+            targetIndexX--;
+        }
+        snake.getFirst().setColor(Color.ORANGE);
+        scoutRect.setHidden(true);
+        scoutRect.setTransparency(0.01f);
+
+
+        // food
+        apple = new Circle(0, 0, SQR_SIZE / 2.0, Color.RED);
+        placeFood();
+
+        // Make sure all elements created here will be removed later.
+        for (int i = 0; i < fields.length; i++) {
+            shapesToRemove.addAll(Arrays.asList(fields[i]));
+        }
+        shapesToRemove.add(apple);
+        shapesToRemove.addAll(snake);
+        shapesToRemove.add(background);
+        shapesToRemove.add(border);
+        shapesToRemove.add(scoutRect);
 
     }
 

@@ -44,15 +44,11 @@ public class FroggerGame extends AbstractGame {
 
     /* Object Methods */
     @Override
-    protected void initView() {
+    protected void runGame() {
 
+        // Initialisiere die Welt.
         view.setSize(WIDTH, HEIGHT);
         view.setName("SMIMS Frogger");
-
-    }
-
-    @Override
-    protected void runGame() {
 
         // Erzeuge den Pokal, zu dem wir hinlaufen müssen.
         ScalablePicture pokal = new Pokal(Tools.randomNumber(60, view.getWidth() - 60), 50);
