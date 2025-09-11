@@ -55,6 +55,7 @@ public class SoundThread extends Thread {
     }
 
     public void stopPlayer() {
+        loop = false;
         player.close();
         closeStream();
     }
